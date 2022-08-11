@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Students from "./pages/Students";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import C404 from "./pages/404";
+import ViewStudent from "./pages/ViewStudent";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="urbanist app">
+        <Header />
+        <div className="routes">
+          <Routes>
+            <Route path="/" element={<Students />} />
+            <Route path="/students/:id/*" element={<ViewStudent />} />
+            <Route path="*" element={<C404 />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

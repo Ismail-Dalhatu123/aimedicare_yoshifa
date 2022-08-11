@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+header img {
+  width: 50px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+header h2 {
+  color: white;
+}
