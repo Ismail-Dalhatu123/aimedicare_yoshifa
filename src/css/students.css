@@ -54,7 +54,7 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   margin-right: 5px;
-  background-color: green;
+  background-color: #067f81;
 }
 .email {
   display: block;
@@ -69,4 +69,7 @@
   color: #ce395f;
   font-size: 0.6em;
   font-weight: 600;
+}
+.active span {
+  color: #212121;
 }

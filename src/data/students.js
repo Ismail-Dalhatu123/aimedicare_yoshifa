@@ -1,6 +1,7 @@
 const students = [
   {
     name: "Andrew Ainsley",
+    active: true,
   },
   {
     name: "Andrew Ainsley",
