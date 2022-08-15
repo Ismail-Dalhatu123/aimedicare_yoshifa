@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+.students {
+	.s_list {
+		@include flex;
+		flex-wrap: wrap;
+	}
+}

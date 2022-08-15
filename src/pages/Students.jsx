@@ -1,25 +1,29 @@
-import { useState } from "react";
-import Input from "../components/Input";
-import Student from "../components/Student";
-import "../css/students.css";
-import students from "../data/students";
+import { useState } from 'react';
+import Search from '../components/Search';
+import Student from '../components/Student';
+import { studentData } from '../data/students';
 
-function Students(props) {
-  const [render, setRender] = useState(students);
-  const handleSearch = (f) =>
-    setRender(
-      students.filter((s) => s.name.toLowerCase().includes(f.toLowerCase()))
-    );
-  return (
-    <div className="container containerv">
-      <Input onChange={handleSearch} placeholder="Search by Player Name" />
-      <div className="s_list">
-        {render.map((s, idx) => (
-          <Student {...s} idx={idx} key={idx} />
-        ))}
-      </div>
-    </div>
-  );
+function Students() {
+	const [render, setRender] = useState(studentData);
+
+	const handleSearch = (query) =>
+		setRender(
+			studentData.filter((student) =>
+				student.name.toLowerCase().includes(query.toLowerCase())
+			)
+		);
+
+	return (
+		<div className="students">
+			<Search onChange={handleSearch} />
+
+			<div className="s_list">
+				{render.map((student) => (
+					<Student {...student} key={student.id} />
+				))}
+			</div>
+		</div>
+	);
 }
 
 export default Students;

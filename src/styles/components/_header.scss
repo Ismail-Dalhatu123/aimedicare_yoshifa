@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+header {
+	@include flex;
+	height: 80px;
+	background-color: $color-primary;
+	padding: 0 5%;
+
+	img {
+		width: 50px;
+		aspect-ratio: 1/1;
+		object-fit: contain;
+	}
+	h2 {
+		color: $color-white;
+	}
+}

@@ -1,47 +1,15 @@
-const students = [
-  {
-    name: "Andrew Ainsley",
-    active: true,
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-  {
-    name: "Andrew Ainsley",
-  },
-];
+import { faker } from '@faker-js/faker';
 
-export default students;
+export const studentData = new Array(25).fill('').map((student) => {
+	const firstName = faker.name.firstName();
+	const lastName = faker.name.lastName();
+
+	return {
+		id: faker.random.numeric(5),
+		photo: faker.internet.avatar(),
+		firstName: firstName,
+		lastName: lastName,
+		email: faker.internet.email(firstName, lastName),
+		active: faker.random.numeric() > 5,
+	};
+});

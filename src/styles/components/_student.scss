@@ -1,0 +1,72 @@
+@use '../abstracts' as *;
+
+.student {
+	width: 200px;
+	background-color: $color-white;
+	padding: 20px;
+	margin: 20px;
+	border-radius: 20px;
+	box-shadow: 0px 4px 40px rgba(33, 33, 33, 0.15);
+	cursor: pointer;
+
+	.img-wrapper {
+		background-color: $color-secondary;
+		width: 95%;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		margin-bottom: 20px;
+		display: grid;
+		place-items: center;
+
+		img {
+			width: 60px;
+			aspect-ratio: 1/1;
+			object-fit: contain;
+			border-radius: 50%;
+		}
+	}
+
+	h3 {
+		font-size: 1rem;
+		color: $color-text;
+		text-align: center;
+	}
+
+	.email {
+		font-weight: 600;
+		font-size: 0.7rem;
+		text-align: center;
+		color: $color-text-light;
+		margin: 5px 0px;
+	}
+
+	.status {
+		@include flex;
+		justify-content: center;
+
+		p {
+			font-size: 0.75rem;
+			color: $color-text;
+			font-weight: 600;
+		}
+
+		& > div {
+			width: 10px;
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			margin-right: 5px;
+		}
+	}
+
+	.active {
+		& > div {
+			background-color: $color-primary;
+		}
+	}
+
+	.offline {
+		& > div {
+			background-color: $color-pink;
+		}
+	}
+}

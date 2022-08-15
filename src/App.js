@@ -1,8 +1,8 @@
-import Header from './components/Header';
-import Students from './pages/Students';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Students from './pages/Students';
 import C404 from './pages/404';
 import ViewStudent from './pages/ViewStudent';
+import Header from './components/Header';
 
 function App() {
 	return (
