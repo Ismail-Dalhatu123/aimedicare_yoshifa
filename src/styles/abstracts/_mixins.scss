@@ -1,0 +1,33 @@
+@mixin flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin responsive($breakPoint) {
+	@if ($breakPoint == xs) {
+		@media (max-width: 0px) {
+			@content;
+		}
+	}
+	@if ($breakPoint == sm) {
+		@media (max-width: 600px) {
+			@content;
+		}
+	}
+	@if ($breakPoint == md) {
+		@media (max-width: 800px) {
+			@content;
+		}
+	}
+	@if ($breakPoint == lg) {
+		@media (max-width: 1200px) {
+			@content;
+		}
+	}
+	@if ($breakPoint == xl) {
+		@media (max-width: 1563px) {
+			@content;
+		}
+	}
+}

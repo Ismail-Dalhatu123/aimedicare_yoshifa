@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-ms-overflow-style: none;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: 'Urbanist', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	max-width: 1900px;
+	display: block;
+	margin: auto;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
