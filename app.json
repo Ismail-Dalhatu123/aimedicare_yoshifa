@@ -16,13 +16,15 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.aimedicare.aimedicare_yoshifa"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.aimedicare.aimedicare_yoshifa"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
