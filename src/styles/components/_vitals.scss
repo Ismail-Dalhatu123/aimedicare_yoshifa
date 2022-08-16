@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.vitals {
+	flex: 1;
+	padding: 30px 15px 0;
+	background-color: $color-background-grey;
+	min-height: calc(100vh - 80px);
+	overflow-y: scroll;
+
+	.readings {
+		display: grid;
+		justify-content: space-between;
+		grid-template-columns: repeat(2, 48%);
+	}
+}

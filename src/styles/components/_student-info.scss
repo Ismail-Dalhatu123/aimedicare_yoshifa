@@ -3,7 +3,7 @@
 .student-info {
 	flex: 1.5;
 	min-height: calc(100vh - 80px);
-	padding: 0 2%;
+	padding: 30px 2% 0;
 
 	.details {
 		@include flex;

@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import StudentInfo from '../components/StudentInfo';
+import Vitals from '../components/Vitals';
 import HeartRate from './HeartRate';
 import BloodOxygen from './BloodOxygen';
 import Pedometer from './Pedometer';
-import SVitals from '../components/SVitals';
 import C404 from './404';
 
 function ViewStudent(props) {
@@ -20,7 +20,7 @@ function ViewStudent(props) {
 				</Routes>
 			</div>
 
-			<SVitals />
+			<Vitals />
 		</div>
 	);
 }
