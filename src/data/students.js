@@ -10,6 +10,8 @@ export const studentData = new Array(25).fill('').map((student) => {
 		firstName: firstName,
 		lastName: lastName,
 		email: faker.internet.email(firstName, lastName),
+		phone: faker.phone.number('0803 ### ####'),
+		age: 16,
 		active: faker.random.numeric() > 5,
 	};
 });

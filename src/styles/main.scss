@@ -1,8 +1,10 @@
 @use './base';
 
 @use './pages/students';
+@use './pages/view-student';
 
 @use './components/app';
 @use './components/header';
 @use './components/input';
-@use './components/student';
+@use './components/student-card';
+@use './components/student-info';

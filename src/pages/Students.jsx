@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import Search from '../components/Search';
-import Student from '../components/Student';
+import StudentCard from '../components/StudentCard';
 import { studentData } from '../data/students';
 
 function Students() {
 	const [render, setRender] = useState(studentData);
 
-	const handleSearch = (query) =>
+	const handleSearch = (query) => {
 		setRender(
 			studentData.filter((student) =>
-				student.name.toLowerCase().includes(query.toLowerCase())
+				student.firstName
+					.concat(student.lastName)
+					.toLowerCase()
+					.includes(query.toLowerCase())
 			)
 		);
+	};
 
 	return (
 		<div className="students">
@@ -19,7 +23,7 @@ function Students() {
 
 			<div className="s_list">
 				{render.map((student) => (
-					<Student {...student} key={student.id} />
+					<StudentCard {...student} key={student.id} />
 				))}
 			</div>
 		</div>

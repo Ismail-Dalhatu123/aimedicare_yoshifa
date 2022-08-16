@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+.student-info {
+	flex: 1.5;
+	min-height: calc(100vh - 80px);
+	padding: 0 2%;
+
+	.details {
+		@include flex;
+		margin-bottom: 20px;
+		background-color: $color-white;
+
+		.img-wrapper {
+			cursor: pointer;
+			img {
+				width: 25px;
+			}
+		}
+
+		.status {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: $color-grey;
+			display: grid;
+			place-items: center;
+
+			& > div {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+			}
+
+			.online {
+				background-color: $color-primary;
+			}
+
+			.offline {
+				background-color: $color-pink;
+			}
+		}
+
+		.name-wrapper {
+			.name {
+				font-size: 2rem;
+				font-weight: 800;
+				margin-bottom: 5px;
+			}
+
+			.email {
+				font-weight: 600;
+				color: $color-text-light;
+			}
+		}
+
+		.age-wrapper {
+			p {
+				font-weight: 600;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	.player-wrapper {
+		display: grid;
+		place-items: center;
+		margin-bottom: 40px;
+
+		img {
+			width: 200px;
+		}
+	}
+
+	.map-wrapper {
+		p {
+			font-weight: 700;
+		}
+	}
+}

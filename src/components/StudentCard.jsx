@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 
-function Student({ id, photo, firstName, lastName, email, active }) {
+function StudentCard(props) {
+	const { id, photo, firstName, lastName, email, active } = props;
 	const fullName = `${firstName} ${lastName}`;
 
 	return (
-		<Link to={`/students/${id}`} className="student">
+		<Link to={`/students/${id}`} state={props} className="student-card">
 			<div className="img-wrapper">
 				<img src={photo} alt={fullName} />
 			</div>
@@ -13,11 +14,11 @@ function Student({ id, photo, firstName, lastName, email, active }) {
 			<div className="email">{email}</div>
 
 			<div className={`status ${active ? 'active' : 'offline'}`}>
-				<div></div>
-				<span>{active ? 'Online' : 'Offline'}</span>
+				<span />
+				<p>{active ? 'Online' : 'Offline'}</p>
 			</div>
 		</Link>
 	);
 }
 
-export default Student;
+export default StudentCard;

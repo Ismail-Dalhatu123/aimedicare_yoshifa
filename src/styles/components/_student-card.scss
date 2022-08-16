@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-.student {
+.student-card {
 	width: 200px;
 	background-color: $color-white;
 	padding: 20px;
@@ -44,28 +44,28 @@
 		@include flex;
 		justify-content: center;
 
-		p {
-			font-size: 0.75rem;
-			color: $color-text;
-			font-weight: 600;
-		}
-
-		& > div {
+		& > span {
 			width: 10px;
 			aspect-ratio: 1/1;
 			border-radius: 50%;
 			margin-right: 5px;
 		}
+
+		p {
+			font-size: 0.75rem;
+			color: $color-text;
+			font-weight: 600;
+		}
 	}
 
 	.active {
-		& > div {
+		& > span {
 			background-color: $color-primary;
 		}
 	}
 
 	.offline {
-		& > div {
+		& > span {
 			background-color: $color-pink;
 		}
 	}
