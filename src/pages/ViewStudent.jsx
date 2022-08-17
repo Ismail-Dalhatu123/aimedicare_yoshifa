@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -9,10 +10,25 @@ import Pedometer from '../components/Pedometer';
 import prevArrow from '../assets/svg/prev-arrow.svg';
 import nextArrow from '../assets/svg/next-arrow.svg';
 import calender from '../assets/svg/calender.svg';
+import axios from '../axios';
 
-function ViewStudent(props) {
+function ViewStudent() {
+	const [player, setPlayer] = useState({
+		fullname: '',
+		gender: '',
+		phoneNumber: '',
+	});
 	const [index, setIndex] = useState(0);
 	const [value, setValue] = useState(new Date());
+
+	const location = useLocation().pathname.split('/');
+	const id = location.pop();
+
+	useEffect(() => {
+		axios
+			.get(`/v1/players/${id}`)
+			.then((res) => setPlayer(res.data.data.player));
+	}, [id]);
 
 	const handlePrev = () =>
 		setIndex((prev) => {
@@ -30,7 +46,7 @@ function ViewStudent(props) {
 
 	return (
 		<div className="view-student">
-			<StudentInfo {...props} />
+			<StudentInfo {...player} />
 
 			<div className="graph">
 				<div className="header">
