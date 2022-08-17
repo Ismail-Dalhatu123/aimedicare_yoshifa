@@ -11,7 +11,7 @@ function ViewStudent(props) {
 		<div className="view-student">
 			<StudentInfo {...props} />
 
-			<div style={{ flex: 1 }}>
+			<div className="routes">
 				<Routes>
 					<Route path="/" element={<HeartRate />} />
 					<Route path="/blood-oxygen" element={<BloodOxygen />} />

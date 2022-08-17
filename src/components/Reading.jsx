@@ -1,6 +1,6 @@
 import CircularProgress from '@mui/material/CircularProgress';
 
-function Reading({ icon, name, value, minValue = 0, maxValue }) {
+function Reading({ icon, name, value, maxValue, unit }) {
 	const progress = Math.round((value / maxValue) * 100);
 
 	return (
@@ -25,7 +25,7 @@ function Reading({ icon, name, value, minValue = 0, maxValue }) {
 
 			<div className="value-wrapper">
 				<p>
-					<span>{value}</span> {name}
+					<span>{value}</span> {unit}
 				</p>
 			</div>
 		</div>

@@ -3,9 +3,18 @@
 .vitals {
 	flex: 1;
 	padding: 30px 15px 0;
-	background-color: $color-background-grey;
-	min-height: calc(100vh - 80px);
+	background-color: $color-bg-grey;
+	max-height: calc(100vh - 80px);
 	overflow-y: scroll;
+
+	.btn-wrapper {
+		@include flex;
+		margin-bottom: 20px;
+
+		button {
+			border-radius: 22px;
+		}
+	}
 
 	.readings {
 		display: grid;

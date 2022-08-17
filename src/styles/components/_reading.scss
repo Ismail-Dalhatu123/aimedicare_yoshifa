@@ -11,6 +11,11 @@
 	.title-wrapper {
 		@include flex;
 		justify-content: center;
+		margin-top: 5px;
+
+		img {
+			margin-right: 5px;
+		}
 	}
 
 	.circular-progress {

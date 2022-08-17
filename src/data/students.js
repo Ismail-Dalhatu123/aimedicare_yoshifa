@@ -6,7 +6,7 @@ export const studentData = new Array(25).fill('').map((student) => {
 
 	return {
 		id: faker.random.numeric(5),
-		photo: faker.internet.avatar(),
+		image: faker.internet.avatar(),
 		firstName: firstName,
 		lastName: lastName,
 		email: faker.internet.email(firstName, lastName),
