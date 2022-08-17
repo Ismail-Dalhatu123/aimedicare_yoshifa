@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import Screen from "../../Screen";
+import Screen from "../Screen";
 
 const PInfo = ({ navigation }) => {
   return (

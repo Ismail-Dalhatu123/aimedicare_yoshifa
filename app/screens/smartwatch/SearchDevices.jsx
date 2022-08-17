@@ -5,23 +5,23 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Button from "../../../components/Button";
-import List from "../../../components/List";
-import Loader from "../../../components/Loader";
-import Svg from "../../../components/Svg";
-import Text from "../../../components/Text";
-import colors from "../../../tools/colors";
-import { FontVariations } from "../../../tools/fonts";
-import svg from "../../../tools/svg";
-import Screen from "../../Screen";
+import Button from "../../components/Button";
+import List from "../../components/List";
+import Loader from "../../components/Loader";
+import Svg from "../../components/Svg";
+import Text from "../../components/Text";
+import colors from "../../tools/colors";
+import { FontVariations } from "../../tools/fonts";
+import svg from "../../tools/svg";
+import Screen from "../Screen";
 import { FontAwesome } from "@expo/vector-icons";
-import Success from "../../../components/Success";
-import SCREEN_NAMES from "../../../tools/screenNames";
-import WatchModule, { eventEmitter } from "../../../modules/WatchModule";
-import EVENTS from "../../../modules/Events";
-import AppContext from "../../../contexts/AppContext";
-import { connectToWatch } from "../../../modules/Listeners";
-// import WatchModule from "../../../modules/WatchModule";
+import Success from "../../components/Success";
+import SCREEN_NAMES from "../../tools/screenNames";
+import WatchModule, { eventEmitter } from "../../modules/WatchModule";
+import EVENTS from "../../modules/Events";
+import AppContext from "../../contexts/AppContext";
+import { connectToWatch } from "../../modules/Listeners";
+// import WatchModule from "../../modules/WatchModule";
 
 const SearchDevices = ({ navigation }) => {
   const [selectedDevice, setSelectedDevice] = useState(null);
@@ -97,7 +97,8 @@ const SearchDevices = ({ navigation }) => {
             rsvg={svg.filled.checkFull}
             closeModal={() => {
               toggleIsModalVisible();
-              navigation.navigate(SCREEN_NAMES.SmartWatch.DeviceType);
+              navigation.navigate(SCREEN_NAMES.SmartWatch.Vitals);
+              WatchModule.startDetectHeart();
             }}
             title={"Device Connected"}
             note={`Connected to ${selectedDevice?.name}`}

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import AppContext from "../contexts/AppContext";
 import { addSmartWatchListeners, connectToWatch } from "../modules/Listeners";
 import { StyleSheet } from "react-native";
@@ -6,6 +6,8 @@ import store from "../store";
 import KEYS from "../store/keys";
 import Alert from "./Alert";
 import ENUMS from "../tools/enums";
+import useClient from "../hooks/useClient";
+import WatchModule from "../modules/WatchModule";
 
 const InitSmartWatch = () => {
   const [connectionFailed, setConnectionFailed] = useState(false);
@@ -13,6 +15,8 @@ const InitSmartWatch = () => {
   const [bloodPressure, setBloodPressure] = useState({});
   const [bloodOxygen, setBloodOxygen] = useState({});
   const [batteryLevel, setBatteryLevel] = useState(0);
+  const heartRateCount = useRef(0);
+  const bloodPressureCount = useRef(0);
   const {
     smartWatchData,
     setSmartWatchData,
@@ -22,6 +26,7 @@ const InitSmartWatch = () => {
     smartWatchInfo,
     user,
   } = useContext(AppContext);
+  const { addHeartReading, addBloodPressure } = useClient();
 
   const getStoredWatchData = async () => {
     const data = await store.getData(KEYS.SMART_WATCH_DATA);
@@ -64,6 +69,15 @@ const InitSmartWatch = () => {
   }, [smartWatchData]);
 
   useEffect(() => {
+    console.log(`Record Heart Rate: ${heartRateCount.current}`);
+    if (heartRateCount.current >= 20) {
+      WatchModule.stopDetectHeart();
+      WatchModule.startDetectBP();
+    } else {
+      if (heartRate?.data) {
+        addHeartReading(heartRateCount, heartRate.data);
+      }
+    }
     setSmartWatchData({ ...smartWatchData, heartRate });
   }, [heartRate]);
 
@@ -72,6 +86,16 @@ const InitSmartWatch = () => {
   }, [batteryLevel]);
 
   useEffect(() => {
+    console.log(`Record BloodPressure:`, bloodPressureCount.current);
+    if (bloodPressureCount.current >= 10) {
+      WatchModule.stopDetectBP();
+      WatchModule.startDetectHeart();
+    } else {
+      if (bloodPressure) {
+        addBloodPressure(bloodPressureCount, bloodPressure);
+        WatchModule.startDetectBP();
+      }
+    }
     setSmartWatchData({ ...smartWatchData, bloodPressure });
   }, [bloodPressure]);
 

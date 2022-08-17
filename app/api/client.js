@@ -1,7 +1,8 @@
 import { create } from "apisauce";
 import cached from "../store";
 const client = create({
-  // baseURL: "http://172.20.10.3:1000/api/v1",
+  // baseURL: "http://172.20.10.4:1000/api/v1",
+  // baseURL: "http://192.168.0.160:1000/api/v1",
   baseURL: "https://api-aimedicare-yoshifa.herokuapp.com/api/v1",
 });
 

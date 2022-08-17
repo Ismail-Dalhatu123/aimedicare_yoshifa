@@ -1,4 +1,4 @@
-import DeviceColor from "../../screens/smartwatch/DeviceColor";
+// import DeviceColor from "../../screens/smartwatch/DeviceColor";
 import Help from "../../screens/smartwatch/Help";
 import Intro from "../../screens/smartwatch/Intro";
 import PInfo from "../../screens/smartwatch/PInfo";
@@ -16,10 +16,10 @@ const SmartWatch = () => {
           name: SCREEN_NAMES.SmartWatch.Intro,
           component: Intro,
         },
-        {
-          name: SCREEN_NAMES.SmartWatch.DeviceType,
-          component: DeviceColor,
-        },
+        // {
+        //   name: SCREEN_NAMES.SmartWatch.DeviceType,
+        //   component: DeviceColor,
+        // },
         {
           name: SCREEN_NAMES.SmartWatch.Help,
           component: Help,

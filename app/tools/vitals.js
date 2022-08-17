@@ -19,12 +19,20 @@ export const vitals = [
     label: "BPM",
     svg: svg.vitals.heartRate,
     value: 0,
+    getData: (vitals) => {
+      if (!vitals || !vitals?.heartRate) return 0;
+      return vitals.heartRate.data;
+    },
   },
   {
     title: "Blood Pressure",
     label: "mmHg",
     svg: svg.vitals.bp,
     value: "0/0",
+    getData: (vitals) => {
+      if (!vitals.bloodPressure) return 0;
+      return `${vitals.bloodPressure.high}/${vitals.bloodPressure.low}`;
+    },
   },
   {
     title: "ECG",

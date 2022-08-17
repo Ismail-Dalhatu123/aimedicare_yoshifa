@@ -5,20 +5,20 @@ import {
   View,
   Platform,
 } from "react-native";
-import Screen from "../../Screen";
-import watch from "../../../assets/images/watch.png";
-import colors from "../../../tools/colors";
-import Text from "../../../components/Text";
-import Switch from "../../../components/Switch";
-import { FontVariations } from "../../../tools/fonts";
+import Screen from "../Screen";
+import watch from "../../assets/images/watch.png";
+import colors from "../../tools/colors";
+import Text from "../../components/Text";
+import Switch from "../../components/Switch";
+import { FontVariations } from "../../tools/fonts";
 import { useEffect, useState } from "react";
-import Button from "../../../components/Button";
-import SCREEN_NAMES from "../../../tools/screenNames";
-import Alert from "../../../components/Alert";
-import ENUMS from "../../../tools/enums";
-import useScreen from "../../../hooks/useScreen";
-import { requestPermissions } from "../../../utils/permissions";
-import WatchModule from "../../../modules/WatchModule";
+import Button from "../../components/Button";
+import SCREEN_NAMES from "../../tools/screenNames";
+import Alert from "../../components/Alert";
+import ENUMS from "../../tools/enums";
+import useScreen from "../../hooks/useScreen";
+import { requestPermissions } from "../../utils/permissions";
+import WatchModule from "../../modules/WatchModule";
 
 const Intro = ({ navigation }) => {
   const [showBluetoothOnAlert, setShowBluetoothOnAlert] = useState(false);

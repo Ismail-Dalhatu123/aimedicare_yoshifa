@@ -30,7 +30,6 @@ const SplashScreen = ({ setIsUserRestored, setUser }) => {
       const id = await store.getData("playerId");
       if (!id) return setIsUserRestored(true);
       let details = await store.getData(urls.players.getById + id);
-      console.log(details);
       if (!details) {
         const { data, error } = await get(urls.players.getById + id);
         if (error) return setIsUserRestored(true);

@@ -15,6 +15,8 @@ import colors from "../../tools/colors";
 import Screen from "../Screen";
 import AppContext from "../../contexts/AppContext";
 import store from "../../store";
+import SCREEN_NAMES from "../../tools/screenNames";
+import WatchModule from "../../modules/WatchModule";
 
 const options = [
   {
@@ -45,7 +47,8 @@ const ecgOptions = [
 
 const Vitals = ({ navigation }) => {
   const [currentOption, setCurrentOption] = useState(options[0]);
-  const { setUser } = useContext(AppContext);
+  const { setUser, smartWatchData, isSmartWatchConnected } =
+    useContext(AppContext);
   const logout = async () => {
     await store.removeData("playerId");
     setUser(null);
@@ -100,7 +103,17 @@ const Vitals = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <Button style={styles.testBtn} title="Run Quick Test" />
+      <Button
+        style={styles.testBtn}
+        onPress={
+          isSmartWatchConnected
+            ? () => {
+                WatchModule.disConnect();
+              }
+            : () => navigation.navigate(SCREEN_NAMES.SmartWatch.SearchDevices)
+        }
+        title={isSmartWatchConnected ? "Disconnect Watch" : "Connect Watch"}
+      />
       <View style={styles.btns}>
         {options.map(({ title, ...props }, idx) => (
           <Button
@@ -114,7 +127,7 @@ const Vitals = ({ navigation }) => {
         ))}
       </View>
       <View style={styles.cards}>
-        {vitals.map(({ title, value, label, isECG, svg }, idx) => (
+        {vitals.map(({ title, value, label, isECG, svg, getData }, idx) => (
           <TouchableOpacity
             key={idx}
             style={[styles.card, styles.vitalsCard, isECG ? styles.ecg : {}]}
@@ -143,7 +156,9 @@ const Vitals = ({ navigation }) => {
                 <CircularProgress
                   size={72}
                   strokeWidth={10}
-                  progressPercent={0}
+                  progressPercent={
+                    getData ? parseInt(getData(smartWatchData)) : 0
+                  }
                 />
               )}
             </View>
@@ -154,7 +169,7 @@ const Vitals = ({ navigation }) => {
                 fontSize={16}
                 textAlign={TextAlign.Center}
               >
-                {value} <Text>{label}</Text>
+                {getData ? getData(smartWatchData) : value} <Text>{label}</Text>
               </Text>
             ) : (
               <View style={styles.ecgOptions}>

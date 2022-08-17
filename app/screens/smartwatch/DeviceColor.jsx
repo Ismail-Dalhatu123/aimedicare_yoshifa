@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import Button from "../../../components/Button";
-import Svg from "../../../components/Svg";
-import Text from "../../../components/Text";
-import colors from "../../../tools/colors";
-import { FontVariations } from "../../../tools/fonts";
-import svg from "../../../tools/svg";
-import Screen from "../../Screen";
-import imageblack from "../../../assets/images/smart-watch/black.jpeg";
-import imagered from "../../../assets/images/smart-watch/red.jpeg";
-import imageblue from "../../../assets/images/smart-watch/blue.jpeg";
-import useScreen from "../../../hooks/useScreen";
-import Success from "../../../components/Success";
-import SCREEN_NAMES from "../../../tools/screenNames";
+import Button from "../../components/Button";
+import Svg from "../../components/Svg";
+import Text from "../../components/Text";
+import colors from "../../tools/colors";
+import { FontVariations } from "../../tools/fonts";
+import svg from "../../tools/svg";
+import Screen from "../Screen";
+import imageblack from "../../assets/images/smart-watch/black.jpeg";
+import imagered from "../../assets/images/smart-watch/red.jpeg";
+import imageblue from "../../assets/images/smart-watch/blue.jpeg";
+import useScreen from "../../hooks/useScreen";
+import Success from "../../components/Success";
+import SCREEN_NAMES from "../../tools/screenNames";
 import { Linking, Platform } from "react-native";
 
 const handleOpenSettings = () => {

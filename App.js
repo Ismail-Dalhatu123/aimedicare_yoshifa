@@ -9,8 +9,9 @@ import SplashScreen from "./app/screens/SplashScreen";
 import AppContext from "./app/contexts/AppContext";
 import InitSmartWatch from "./app/components/InitSmartWatch";
 import Auth from "./app/navigation/stacks/Auth";
-import Home from "./app/navigation/stacks/HomeStack";
-import Vitals from "./app/screens/smartwatch/Vitals";
+// import Home from "./app/navigation/stacks/HomeStack";
+// import Vitals from "./app/screens/smartwatch/Vitals";
+import SmartWatch from "./app/navigation/stacks/SmartWatch";
 
 const App = () => {
   const [isSmartWatchConnected, setIsSmartWatchConnected] = useState(false);
@@ -61,7 +62,7 @@ const App = () => {
           <NavigationContainer ref={rootNavigation}>
             {isUserRestored ? (
               user ? (
-                <Vitals />
+                <SmartWatch />
               ) : (
                 <Auth />
               )

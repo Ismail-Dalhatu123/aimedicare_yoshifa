@@ -1,6 +1,8 @@
 import { useState } from "react";
 import client from "../api/client";
 import { RequestTypes, responseTypes } from "../api/request";
+import urls from "../api/urls";
+import store from "../store";
 import secureStore from "../store/secureStore";
 
 function useClient() {
@@ -60,6 +62,25 @@ function useClient() {
     return Request(RequestTypes.PATCH, ...args);
   };
 
+  const addHeartReading = async (submissionsCount, heartCount) => {
+    const playerId = await store.getData("playerId");
+    const { error, data } = await post(urls.vitals.heartRate.add, {
+      playerId: playerId,
+      heartRate: heartCount,
+    });
+    if (error) return;
+    submissionsCount.current = submissionsCount.current + 1;
+  };
+
+  const addBloodPressure = async (submissionsCount, bloodPressure) => {
+    const playerId = await store.getData("playerId");
+    const { error, data } = await post(urls.vitals.bloodPressure.add, {
+      playerId: playerId,
+      bloodPressure,
+    });
+    if (error) return;
+    submissionsCount.current = submissionsCount.current + 1;
+  };
 
   return {
     isLoading,
@@ -70,6 +91,8 @@ function useClient() {
     patch,
     Request,
     errorMessage,
+    addHeartReading,
+    addBloodPressure,
   };
 }
 
