@@ -18,7 +18,9 @@ function Students() {
 			return items;
 		}
 
-		return items.filter((item) => item.fullName.includes(filter));
+		return items.filter((item) =>
+			item.fullname.toLowerCase().includes(filter.toLowerCase())
+		);
 	};
 
 	const filteredData = useMemo(
