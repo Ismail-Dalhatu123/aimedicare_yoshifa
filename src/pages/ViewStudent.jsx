@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useEffectOnce } from '../hooks/useEffectOnce';
 import { useLocation } from 'react-router';
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
@@ -24,7 +25,7 @@ function ViewStudent() {
 	const location = useLocation().pathname.split('/');
 	const id = location.pop();
 
-	useEffect(() => {
+	useEffectOnce(() => {
 		axios
 			.get(`/v1/players/${id}`)
 			.then((res) => setPlayer(res.data.data.player));

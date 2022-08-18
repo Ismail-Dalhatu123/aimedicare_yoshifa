@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useEffectOnce } from '../../hooks/useEffectOnce';
 import { useLocation } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
 import icon from '../../assets/svg/pedometer.svg';
@@ -11,7 +12,7 @@ function Pedometer() {
 	const steps = data.length ? data[data.length - 1]?.step : 0;
 	const progress = Math.round((steps / 10000) * 100);
 
-	// useEffect(() => {
+	// useEffectOnce(() => {
 	// 	axios
 	// 		.get(`/v1/vitals/${id}/sport-data`)
 	// 		.then((res) => setData(res.data.data.readings))

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useEffectOnce } from '../../hooks/useEffectOnce';
 import { useLocation } from 'react-router';
 import icon from '../../assets/svg/blood-oxygen.svg';
 import axios from '../../axios';
@@ -8,7 +9,7 @@ function BloodOxygen() {
 	const id = useLocation().pathname.split('/').pop();
 	const name = 'blood oxygen';
 
-	useEffect(() => {
+	useEffectOnce(() => {
 		axios
 			.get(`/v1/vitals/${id}/blood-oxygen`)
 			.then((res) => setData(res.data.data.readings));

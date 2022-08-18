@@ -1,14 +1,15 @@
-// import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router';
+import { useState } from 'react';
+import { useEffectOnce } from '../../hooks/useEffectOnce';
+import { useLocation } from 'react-router';
 import icon from '../../assets/svg/hrv.svg';
-// import axios from '../../axios';
+import axios from '../../axios';
 
 function HRV() {
-	// const [data, setData] = useState([]);
-	// const id = useLocation().pathname.split('/').pop();
+	const [data, setData] = useState([]);
+	const id = useLocation().pathname.split('/').pop();
 	const name = 'hrv';
 
-	// useEffect(() => {
+	// useEffectOnce(() => {
 	// 	axios
 	// 		.get(`/v1/vitals/${id}/hrv`)
 	// 		.then((res) => setData(res.data.data.readings))

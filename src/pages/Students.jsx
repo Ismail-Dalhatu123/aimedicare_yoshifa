@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useEffectOnce } from '../hooks/useEffectOnce';
 import Search from '../components/Search';
 import StudentCard from '../components/StudentCard';
 import axios from '../axios';
@@ -7,7 +8,7 @@ function Students() {
 	const [studentList, setStudentList] = useState([]);
 	const [query, setQuery] = useState();
 
-	useEffect(() => {
+	useEffectOnce(() => {
 		axios
 			.get('/v1/players')
 			.then((res) => setStudentList(res.data.data.players));

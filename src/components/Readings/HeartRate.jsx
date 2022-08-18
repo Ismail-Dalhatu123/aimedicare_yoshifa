@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useEffectOnce } from '../../hooks/useEffectOnce';
 import { useLocation } from 'react-router';
 import icon from '../../assets/svg/heart-rate.svg';
 import axios from '../../axios';
@@ -8,7 +9,7 @@ function HeartRate() {
 	const id = useLocation().pathname.split('/').pop();
 	const name = 'heart rate';
 
-	useEffect(() => {
+	useEffectOnce(() => {
 		axios
 			.get(`/v1/vitals/${id}/heart-rate`)
 			.then((res) => setData(res.data.data.readings));
