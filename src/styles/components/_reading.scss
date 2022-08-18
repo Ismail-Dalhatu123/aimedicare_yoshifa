@@ -16,6 +16,10 @@
 		img {
 			margin-right: 5px;
 		}
+
+		p {
+			text-transform: capitalize;
+		}
 	}
 
 	.circular-progress {
@@ -47,6 +51,23 @@
 			color: $color-text-light;
 			font-weight: 500;
 			font-size: 0.8rem;
+		}
+
+		span {
+			color: $color-primary;
+			font-weight: 600;
+		}
+	}
+
+	.value-wrapper-big {
+		white-space: nowrap;
+		text-align: center;
+		margin-top: 40px;
+
+		p {
+			color: $color-text-light;
+			font-weight: 500;
+			font-size: 1rem;
 		}
 
 		span {
