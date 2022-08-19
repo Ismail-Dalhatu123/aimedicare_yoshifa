@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffectOnce } from '../hooks/useEffectOnce';
+import { useEffect, useState } from 'react';
 import { useId } from '../hooks/useId';
 import {
 	LineChart,
@@ -22,11 +21,11 @@ function Pedometer({ date }) {
 	const [value, setValue] = useState(0);
 	const id = useId();
 
-	useEffectOnce(() => {
+	useEffect(() => {
 		axios
 			.get(`/v1/vitals/${id}/sport-data?from${date}&to${date}`)
 			.then((res) => setReadings(res.data.data.readings));
-	}, [id]);
+	}, [id, date]);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);

@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffectOnce } from '../../hooks/useEffectOnce';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import icon from '../../assets/svg/heart-rate.svg';
 import axios from '../../axios';
@@ -9,7 +8,7 @@ function BloodPressure() {
 	const id = useLocation().pathname.split('/').pop();
 	const name = 'blood pressure';
 
-	useEffectOnce(() => {
+	useEffect(() => {
 		axios
 			.get(`/v1/vitals/${id}/blood-pressure`)
 			.then((res) => setData(res.data.data.readings));
@@ -22,7 +21,7 @@ function BloodPressure() {
 				<p>{name}</p>
 			</div>
 
-			<div className="value-wrapper-big">
+			<div className="value-wrapper">
 				<p>
 					<span>
 						{data.length
