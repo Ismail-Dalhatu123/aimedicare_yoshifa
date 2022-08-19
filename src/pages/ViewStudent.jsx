@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { cloneElement, useState } from 'react';
 import { useEffectOnce } from '../hooks/useEffectOnce';
 import { useLocation } from 'react-router';
-import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, TextField } from '@mui/material';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -10,8 +10,8 @@ import Vitals from '../components/Vitals';
 import Pedometer from '../components/Pedometer';
 import prevArrow from '../assets/svg/prev-arrow.svg';
 import nextArrow from '../assets/svg/next-arrow.svg';
-import calender from '../assets/svg/calender.svg';
 import axios from '../axios';
+import { getDate } from '../functions';
 
 function ViewStudent() {
 	const [player, setPlayer] = useState({
@@ -21,6 +21,7 @@ function ViewStudent() {
 	});
 	const [index, setIndex] = useState(0);
 	const [value, setValue] = useState(new Date());
+	const [date, setDate] = useState(getDate(value._d));
 
 	const location = useLocation().pathname.split('/');
 	const id = location.pop();
@@ -45,6 +46,11 @@ function ViewStudent() {
 			return number;
 		});
 
+	const handleChange = (value) => {
+		setValue(value);
+		setDate(getDate(value._d));
+	};
+
 	return (
 		<div className="view-student">
 			<StudentInfo {...player} />
@@ -64,17 +70,13 @@ function ViewStudent() {
 					<LocalizationProvider dateAdapter={AdapterMoment}>
 						<DatePicker
 							value={value}
-							onChange={(newValue) => {
-								setValue(newValue);
-							}}
-							renderInput={(params) => (
-								<TextField {...params} {...extraParams} />
-							)}
+							onChange={(newValue) => handleChange(newValue)}
+							renderInput={(params) => <TextField {...params} size="small" />}
 						/>
 					</LocalizationProvider>
 				</div>
 
-				{graphs[index].component}
+				{cloneElement(graphs[index].component, { date })}
 			</div>
 
 			<Vitals />
@@ -101,14 +103,3 @@ const graphs = [
 		component: <></>,
 	},
 ];
-
-const extraParams = {
-	size: 'small',
-	InputProps: {
-		endAdornment: (
-			<InputAdornment position="end">
-				<img src={calender} alt="calender" />
-			</InputAdornment>
-		),
-	},
-};

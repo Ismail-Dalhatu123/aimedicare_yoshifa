@@ -17,5 +17,15 @@ export const theme = createTheme({
 				},
 			},
 		},
+
+		MuiTab: {
+			styleOverrides: {
+				root: {
+					textTransform: 'capitalize',
+					fontSize: '1rem',
+					fontWeight: '700',
+				},
+			},
+		},
 	},
 });
