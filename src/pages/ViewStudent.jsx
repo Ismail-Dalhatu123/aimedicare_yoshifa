@@ -11,6 +11,7 @@ import prevArrow from '../assets/svg/prev-arrow.svg';
 import nextArrow from '../assets/svg/next-arrow.svg';
 import axios from '../axios';
 import { getDate } from '../functions';
+import HeartRate from '../components/HeartRate';
 
 function ViewStudent() {
 	const [player, setPlayer] = useState({
@@ -93,12 +94,12 @@ const graphs = [
 	},
 	{
 		id: 2,
-		name: 'Heart rate monitor',
-		component: <></>,
+		name: 'Heart Rate',
+		component: <HeartRate />,
 	},
 	{
 		id: 3,
-		name: 'Blood oxygen',
+		name: 'Blood Pressure',
 		component: <></>,
 	},
 ];

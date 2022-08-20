@@ -41,25 +41,6 @@
 	}
 
 	.value-wrapper {
-		position: absolute;
-		bottom: 10px;
-		left: 50%;
-		transform: translateX(-50%);
-		white-space: nowrap;
-
-		p {
-			color: $color-text-light;
-			font-weight: 500;
-			font-size: 0.8rem;
-		}
-
-		span {
-			color: $color-primary;
-			font-weight: 600;
-		}
-	}
-
-	.value-wrapper {
 		white-space: nowrap;
 		text-align: center;
 		margin-top: 40px;
