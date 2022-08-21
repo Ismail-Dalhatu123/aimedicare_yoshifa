@@ -25,8 +25,8 @@ function BloodPressure() {
 				<p>
 					<span>
 						{data.length
-							? `${data[data.length - 1]?.['bloodPressure'].low}/${
-									data[data.length - 1]?.['bloodPressure'].high
+							? `${data[data.length - 1]?.['bloodPressure'].high}/${
+									data[data.length - 1]?.['bloodPressure'].low
 							  }`
 							: '0/0'}
 					</span>{' '}

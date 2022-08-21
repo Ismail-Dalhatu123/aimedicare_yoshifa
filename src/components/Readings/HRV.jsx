@@ -12,7 +12,7 @@ function HRV() {
 	// 	axios
 	// 		.get(`/v1/vitals/${id}/hrv`)
 	// 		.then((res) => setData(res.data.data.readings))
-	// 		.catch((err) => console.log(err));
+	// 		.catch((err) => setData(err));
 	// }, [id]);
 
 	return (
